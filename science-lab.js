@@ -1,15 +1,41 @@
 /* Task 1: Compile Participant Details with Shorthand Property Names */
-// TODO: Construct an object named `participant` with properties for `name`, `age`, and `studyField`. Utilize shorthand property names to simplify your code.
+const name = "Akinkunmi";
+const age = 32;
+const studyField = "product management";
+const participant = { name, age, studyField };
 
 /* Task 2: Implement a Shorthand Function for Participant Info */
-// TODO: Copy the `participant` object by adding a shorthand method named `displayInfo` that prints the participant's details using `this` and a template string.
+const participantWithMethod = {
+  ...participant,
+  displayInfo() {
+    console.log(`Name: ${this.name}, Age: ${this.age}, Field: ${this.studyField}`);
+  }
+};
+// Example usage:
+// participantWithMethod.displayInfo();
 
 /* Task 3: Implement a Same Shorthand Arrow Function for Participant Info */
-// TODO: Echo the above task with an arrow function. Observe the behavior of `this` and explain your findings.
+const participantWithArrow = {
+  ...participant,
+  displayInfo: () => {
+    // Arrow functions do not have their own 'this', so this will not refer to the object
+    console.log(`Name: ${this.name}, Age: ${this.age}, Field: ${this.studyField}`);
+  }
+};
+// Example usage:
+// participantWithArrow.displayInfo();
+
 /*
  * Observations:
- * TODO: Explain here.
+ * Arrow functions do not have their own 'this' binding. In the above example, 'this' inside the arrow function does not refer to the participantWithArrow object, but rather to the enclosing scope (which is likely 'undefined' or the global object in non-strict mode). As a result, the properties will be 'undefined'.
  */
 
 /* Task 4: Using Computed Property Names */
-// TODO: Implement a function named `updateParticipantInfo` that takes a property name and value as arguments alongside an object and returns a new object with that property dynamically set.
+function updateParticipantInfo(obj, propName, value) {
+  return {
+    ...obj,
+    [propName]: value
+  };
+}
+// Example usage:
+// const updated = updateParticipantInfo(participant, "age",
