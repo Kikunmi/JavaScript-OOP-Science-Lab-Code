@@ -1,6 +1,6 @@
 /* Task 1: Compile Participant Details with Shorthand Property Names */
-const name = "Akinkunmi";
-const age = 32;
+const name = "Kikunmi";
+const age = 45;
 const studyField = "product management";
 const participant = { name, age, studyField };
 
